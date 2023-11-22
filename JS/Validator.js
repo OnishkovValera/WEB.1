@@ -6,13 +6,14 @@ function validateY (event) {
     const MAX = 5;
 
     let var_y = document.getElementById("Y");
-    numY = var_y.value.replace(',', '.');
-    if (isNumeric(numY) && (numY > MAX || numY < MIN)) {
-        event.preventDefault();
-        alert("неподходящее значение");
-        return false;
-    } else {
+    numY = parseFloat(var_y.value.replace(',', '.'));
+    if(isNumeric(numY) && numY<= MAX && numY >= MIN){
         return true;
+    }else {
+        alert("Число должно быть больше 5 и меньше 3")
+        event.preventDefault();
+        return false;
     }
+
 }
-document.getElementById("submitButton").addEventListener('submit', event=>validateY(event));
+document.getElementById("feedBack").addEventListener("submit", event=>validateY(event));

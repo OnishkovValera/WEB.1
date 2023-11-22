@@ -2,15 +2,12 @@
 ini_set("session.gc_maxlifetime", 1200);
 session_start();
 date_default_timezone_set("Europe/Moscow");
-$x = $_POST["X"];
-$y = $_POST["Y"];
-$r = $_POST["radius"];
+$x = floatval($_POST["X"]);
+$y = round(floatval($_POST["Y"]), 13);
+$r = floatval($_POST["radius"]);
 $startTime= microtime(true);
 function validate($x, $y, $r){
     if(is_numeric($x) and is_numeric($y) and is_numeric($r)){
-        $x = (float)$x;
-        $y = (float)$y;
-        $r = (float)$r;
         if(abs($x) <= 4 and $y >= -3 and $y <= 5 and $r <= 3 and $r >= 1){
             return true;
         }
@@ -37,10 +34,8 @@ function check($x, $y, $r){
     <title>Результаты</title>
     <link rel="stylesheet" href ="next.css" />
 
-
 </head>
 <body class="next_page">
-
 <table class="answerTable">
     <tr>
         <td>X</td>
