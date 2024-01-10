@@ -18,7 +18,7 @@ function check($x, $y, $r){
     if($x >= 0 and $x <= $r/2 and $y >= 0 and $y <= $r){
         return "есть пробитие";
     }elseif ($x>=0 and $y <=0 and $y >= $x - $r){
-        return "есть пробите";
+        return "есть пробитие";
     }elseif($x <= 0 and $y <= 0 and ($x*$x + $y*$y <= $r*$r)){
         return "есть пробитие";
     }else{
